@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//laravel8から下記記述が必要
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');
+
+// Route::get('/folders/{id}/tasks', function () {
+//     return 'Hello World';
+// });
